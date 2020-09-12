@@ -2,5 +2,5 @@
 <resources>
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">你好世界!</string>
-    <string name="ButtonText">一个键</string>
+    <string name="ButtonText">一个按键</string>
 </resources>
