@@ -12,7 +12,26 @@
     android:textSize="30dp" />
 
 <Button
+    android:id="@+id/MyButton"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    android:text="Look at my GUI" />
+    android:text="Click here" />
+
+<CheckBox
+    android:id="@+id/MyCheckBox"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:text="Check this out!" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/flag" />
+
+<Switch
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Check this out!" />
+
+
 </LinearLayout>
