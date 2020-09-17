@@ -42,7 +42,7 @@
         android:id="@+id/MySwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/MyImageButton"
+        android:layout_toRightOf="@id/MyImageButton"
         android:layout_alignParentStart="true"
         android:text="Switch on / off" />
 
