@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-<TextView
-    android:id="@+id/MyText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Look at my GUI"
-    android:textSize="30dp" />
+    android:layout_height="match_parent">
 
-<Button
-    android:id="@+id/MyButton"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:text="Click here" />
+    <TextView
+        android:id="@+id/MyText"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:text="Look at my GUI"
+        android:textSize="30dp" />
 
-<CheckBox
-    android:id="@+id/MyCheckBox"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:text="Check this out!" />
+    <Button
+        android:id="@+id/MyButton"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:layout_rowWeight="0.5"
+        android:text="Click here" />
 
-<ImageButton
-    android:id="@+id/MyImageButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/flag" />
+    <CheckBox
+        android:id="@+id/MyCheckBox"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:layout_rowWeight="0.5"
+        android:text="Check this out!" />
 
-<Switch
-    android:id="@+id/MySwitch"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Switch on / off" />
+    <ImageButton
+        android:id="@+id/MyImageButton"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:layout_rowWeight="0.5"
+        android:src="@drawable/flag" />
 
-<EditText
-    android:id="@+id/MyEditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Type here"
-    android:inputType="textPersonName" />
+    <Switch
+        android:id="@+id/MySwitch"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:layout_rowWeight="0.5"
+        android:text="Switch on / off" />
 
+    <EditText
+        android:id="@+id/MyEditText"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:hint="Type here"
+        android:inputType="textPersonName" />
 
-</LinearLayout>
+</GridLayout>
