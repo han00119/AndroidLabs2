@@ -18,14 +18,14 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Click here"
-        android:layout_weight="0.5"/>
+        android:layout_weight="1"/>
 
     <CheckBox
         android:id="@+id/MyCheckBox"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Check this out!"
-        android:layout_weight="0.5"/>
+        android:layout_weight="1"/>
 
     <ImageButton
         android:id="@+id/MyImageButton"
