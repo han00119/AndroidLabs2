@@ -16,17 +16,20 @@
 
     <Button
         android:id="@+id/MyButton"
-        android:layout_width="wrap_content"
+        android:layout_width="166dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyText"
+        android:layout_marginTop="7dp"
         android:text="Click here" />
 
     <CheckBox
         android:id="@+id/MyCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/MyButton"
         android:layout_below="@+id/MyText"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/MyButton"
         android:text="Check this out!" />
 
     <ImageButton
@@ -34,12 +37,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyButton"
+        android:layout_marginTop="6dp"
         android:src="@drawable/flag" />
 
     <Switch
         android:id="@+id/MySwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="51dp"
+        android:layout_below="@+id/MyButton"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
         android:layout_toRightOf="@id/MyImageButton"
         android:text="Switch on / off" />
 
@@ -47,8 +54,9 @@
         android:id="@+id/MyEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/MySwitch"
+        android:layout_marginTop="59dp"
         android:hint="Type here"
-        android:inputType="textPersonName"
-        android:layout_below="@id/MySwitch"/>
+        android:inputType="textPersonName" />
 
 </RelativeLayout>
