@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyText"
+        android:layout_alignParentStart="true"
         android:text="Click here" />
 
     <CheckBox
@@ -33,12 +34,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyButton"
+        android:layout_alignParentStart="true"
         android:src="@drawable/flag" />
 
     <Switch
         android:id="@+id/MySwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/MyImageButton"
+        android:layout_alignParentStart="true"
         android:text="Switch on / off" />
 
     <EditText
@@ -46,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type here"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@id/MySwitch"/>
 
 </RelativeLayout>
