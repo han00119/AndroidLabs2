@@ -44,5 +44,5 @@
         android:hint="Type here"
         android:inputType="textPersonName" />
 
-
+    
 </LinearLayout>
