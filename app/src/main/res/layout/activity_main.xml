@@ -15,40 +15,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/MyButton"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/Btext" />
+        <Button
+            android:id="@+id/MyButton"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/Btext" />
 
-    <CheckBox
-        android:id="@+id/MyCheckBox"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/CBtext" />
+        <CheckBox
+            android:id="@+id/MyCheckBox"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/CBtext" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    <ImageButton
-        android:id="@+id/MyImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/flag" />
+        <ImageButton
+            android:id="@+id/MyImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag" />
 
-    <Switch
-        android:id="@+id/MySwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Stext" />
+        <Switch
+            android:id="@+id/MySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Stext" />
     </LinearLayout>
 
-    <EditText
-        android:hint="@string/ETtext"
-        android:id="@+id/MyEditText"
-        android:inputType="textPersonName"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        <EditText
+            android:hint="@string/ETtext"
+            android:id="@+id/MyEditText"
+            android:inputType="textPersonName"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
 
 
 </LinearLayout>
