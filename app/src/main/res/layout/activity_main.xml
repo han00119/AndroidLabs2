@@ -10,21 +10,26 @@
         android:id="@+id/MyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Look at my GUI"
+        android:text="@string/TVtext"
         android:textSize="30dp" />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:id="@+id/MyButton"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Click here" />
+        android:text="@string/Btext" />
 
     <CheckBox
         android:id="@+id/MyCheckBox"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Check this out!" />
-
+        android:text="@string/CBtext" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
     <ImageButton
         android:id="@+id/MyImageButton"
         android:layout_width="wrap_content"
@@ -35,14 +40,15 @@
         android:id="@+id/MySwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch on / off" />
+        android:text="@string/Stext" />
+    </LinearLayout>
 
     <EditText
+        android:hint="@string/ETtext"
         android:id="@+id/MyEditText"
-        android:layout_width="match_parent"
+        android:inputType="textPersonName"
         android:layout_height="wrap_content"
-        android:hint="Type here"
-        android:inputType="textPersonName" />
+        android:layout_width="match_parent" />
 
 
 </LinearLayout>
