@@ -12,7 +12,8 @@
         android:layout_columnSpan="2"
         android:layout_rowWeight="1"
         android:layout_gravity="fill"
-        android:text="@string/TVtext" />
+        android:text="@string/TVtext"
+        android:textSize="30dp"/>
 
     <Button
         android:layout_rowWeight="0.5"
