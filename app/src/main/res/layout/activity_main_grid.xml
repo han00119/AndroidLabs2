@@ -1,50 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:rowCount="5"
+    android:columnCount="2" >
+
 
     <TextView
-        android:id="@+id/MyText"
-        android:layout_row="0"
-        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_rowWeight="1"
+        android:layout_gravity="fill"
         android:text="@string/TVtext"
-        android:textSize="30dp" />
+        android:textSize="30dp"/>
 
     <Button
-        android:id="@+id/MyButton"
-        android:layout_height="6dp"
-        android:layout_row="1"
         android:layout_rowWeight="0.5"
-        android:layout_column="0"
+        android:layout_gravity="fill"
         android:text="@string/Btext" />
 
     <CheckBox
-        android:id="@+id/MyCheckBox"
-        android:layout_column="1"
-        android:layout_row="1"
-        android:layout_rowWeight="0.5"
+        android:layout_rowWeight="1"
+        android:layout_gravity="fill"
         android:text="@string/CBtext" />
 
     <ImageButton
-        android:id="@+id/MyImageButton"
-        android:layout_column="0"
-        android:layout_row="2"
-        android:layout_rowWeight="0.5"
-        android:src="@drawable/flag" />
+        android:layout_rowSpan="3"
+        android:layout_rowWeight="1"
+        android:src="@drawable/flag"
+        />
 
     <Switch
-        android:id="@+id/MySwitch"
-        android:layout_column="1"
-        android:layout_row="2"
-        android:layout_rowWeight="0.5"
+        android:layout_rowSpan="3"
         android:text="@string/Stext" />
 
     <EditText
-        android:id="@+id/MyEditText"
-        android:layout_column="0"
-        android:layout_row="3"
         android:hint="@string/ETtext"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_gravity="fill"
+        android:layout_columnSpan="2"
+        android:layout_height="wrap_content" />
 
 </GridLayout>
