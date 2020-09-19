@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton IB = findViewById(R.id.MyImageButton);
         Switch S = findViewById(R.id.MySwitch);
         EditText ET = findViewById(R.id.MyEditText);
-        Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
-        Snackbar.make(this, "this String is", Snackbar.LENGTH_LONG).show();
-        Snackbar.setAction("UNDO", click -> cb.setChecked(!b));
+        //Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
+        //Snackbar.make(this, "this String is", Snackbar.LENGTH_LONG).show();
+        //Snackbar.setAction("UNDO", click -> cb.setChecked(!b));
     }
 }
