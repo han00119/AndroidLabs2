@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -22,7 +21,6 @@
 
     <CheckBox
         android:layout_rowWeight="1"
-
         android:layout_gravity="fill"
         android:text="@string/CBtext" />
 
@@ -34,14 +32,12 @@
 
     <Switch
         android:layout_rowSpan="3"
-
         android:text="@string/Stext" />
 
     <EditText
         android:hint="@string/ETtext"
         android:inputType="textPersonName"
         android:layout_gravity="fill"
-
         android:layout_columnSpan="2"
         android:layout_height="wrap_content" />
 
