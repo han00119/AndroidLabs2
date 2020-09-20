@@ -10,4 +10,5 @@
     <string name="ETtext">写到这里</string>
     <string name="ToastText">这里是更多的信息</string>
     <string name="SnackbarText">这个开关是</string>
+    <string name="UndoText">撤销</string>
 </resources>
