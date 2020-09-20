@@ -44,7 +44,4 @@ public class MainActivity extends AppCompatActivity {
         });
         EditText ET = findViewById(R.id.MyEditText);
 
-        //Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
-        //Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
-        //Snackbar.setAction("UNDO", click -> cb.setChecked(!b));
     }}
