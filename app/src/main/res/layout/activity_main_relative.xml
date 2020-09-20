@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:text="Look at my GUI"
+        android:text="@string/TVtext"
         android:textSize="30dp" />
 
     <Button
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyText"
         android:layout_marginTop="7dp"
-        android:text="Click here" />
+        android:text="@string/Btext" />
 
     <CheckBox
         android:id="@+id/MyCheckBox"
@@ -30,7 +30,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginTop="14dp"
         android:layout_toRightOf="@+id/MyButton"
-        android:text="Check this out!" />
+        android:text="@+id/CBText" />
 
     <ImageButton
         android:id="@+id/MyImageButton"
@@ -48,15 +48,15 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
         android:layout_toRightOf="@id/MyImageButton"
-        android:text="Switch on / off" />
+        android:text="@string/Stext" />
 
     <EditText
         android:id="@+id/MyEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/MySwitch"
-        android:layout_marginTop="44dp"
-        android:hint="Type here"
+        android:layout_marginTop="67dp"
+        android:hint="@string/ETtext"
         android:inputType="textPersonName" />
 
 </RelativeLayout>
