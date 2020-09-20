@@ -30,7 +30,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginTop="14dp"
         android:layout_toRightOf="@+id/MyButton"
-        android:text="@+id/CBText" />
+        android:text="@string/CBtext" />
 
     <ImageButton
         android:id="@+id/MyImageButton"
