@@ -8,4 +8,5 @@
     <string name="Stext">Switch on/off</string>
     <string name="ETtext">Type here</string>
     <string name="ToastText">Here is more information</string>
+    <string name="SnackbarText">this Switch is </string>
 </resources>
