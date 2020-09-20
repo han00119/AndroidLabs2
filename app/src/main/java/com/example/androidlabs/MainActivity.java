@@ -19,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     private Object obj;
+    Snackbar SB = new Snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
         CheckBox CB = findViewById(R.id.MyCheckBox);
         ImageButton IB = findViewById(R.id.MyImageButton);
         Switch S = findViewById(R.id.MySwitch);
-//        S.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
-//                Snackbar.setAction("UNDO", click -> S.setChecked(!isChecked));
-//            }
-//        });
+        S.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
+                SB.setAction("UNDO", click -> S.setChecked(!isChecked));
+            }
+        });
         EditText ET = findViewById(R.id.MyEditText);
 
         //Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
