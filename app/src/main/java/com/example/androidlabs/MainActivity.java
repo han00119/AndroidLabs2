@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TextView TV = findViewById(R.id.MyText);
         Button B = findViewById(R.id.MyButton);
         B.setOnClickListener( btn -> {
-            Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,getResources().getString(R.string.ToastText), Toast.LENGTH_LONG).show();
         });
         CheckBox CB = findViewById(R.id.MyCheckBox);
         ImageButton IB = findViewById(R.id.MyImageButton);
