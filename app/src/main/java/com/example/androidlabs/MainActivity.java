@@ -34,13 +34,9 @@ public class MainActivity extends AppCompatActivity {
         ImageButton IB = findViewById(R.id.MyImageButton);
         Switch S = findViewById(R.id.MySwitch);
         S.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if ( isChecked )
-                {
-                    Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
-                }
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
+                Snackbar.setAction("UNDO", click -> S.setChecked(!isChecked));
             }
         });
         EditText ET = findViewById(R.id.MyEditText);
@@ -48,5 +44,4 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
         //Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
         //Snackbar.setAction("UNDO", click -> cb.setChecked(!b));
-    }
-}
+    }}
