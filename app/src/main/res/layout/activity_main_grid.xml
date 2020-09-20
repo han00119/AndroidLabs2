@@ -8,6 +8,7 @@
 
 
     <TextView
+        android:id="@+id/MyText"
         android:layout_columnSpan="2"
         android:layout_rowWeight="1"
         android:layout_gravity="fill"
@@ -15,26 +16,31 @@
         android:textSize="30dp"/>
 
     <Button
+        android:id="@+id/MyButton"
         android:layout_rowWeight="0.5"
         android:layout_gravity="fill"
         android:text="@string/Btext" />
 
     <CheckBox
+        android:id="@+id/MyCheckBox"
         android:layout_rowWeight="1"
         android:layout_gravity="fill"
         android:text="@string/CBtext" />
 
     <ImageButton
+        android:id="@+id/MyImageButton"
         android:layout_rowSpan="3"
         android:layout_rowWeight="1"
         android:src="@drawable/flag"
         />
 
     <Switch
+        android:id="@+id/MySwitch"
         android:layout_rowSpan="3"
         android:text="@string/Stext" />
 
     <EditText
+        android:id="@+id/MyEditText"
         android:hint="@string/ETtext"
         android:inputType="textPersonName"
         android:layout_gravity="fill"
