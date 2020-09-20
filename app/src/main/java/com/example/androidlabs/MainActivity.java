@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked==true){onoff="on";}
                 if (isChecked==false){onoff="off";}
-                Snackbar SB = Snackbar.make(S, "this Switch is " + onoff, Snackbar.LENGTH_LONG);
+                Snackbar SB = Snackbar.make(S, getResources().getString(R.string.SnackbarText) + onoff, Snackbar.LENGTH_LONG);
                 SB.setAction(getResources().getString(R.string.UndoText), click -> {
                     S.setChecked(!isChecked);
                 });
