@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     private Object obj;
-
+    String onoff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +35,14 @@ public class MainActivity extends AppCompatActivity {
         Switch S = findViewById(R.id.MySwitch);
         S.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Snackbar SB = Snackbar.make(S, "this Switch is " + isChecked, Snackbar.LENGTH_LONG);
+                if (isChecked==true){onoff="on";}
+                if (isChecked==false){onoff="off";}
+                Snackbar SB = Snackbar.make(S, "this Switch is " + onoff, Snackbar.LENGTH_LONG);
                 SB.setAction(getResources().getString(R.string.UndoText), click -> {
                     S.setChecked(!isChecked);
                 });
                 SB.show();
             }
         });
-        EditText ET = findViewById(R.id.MyEditText);
 
     }}
