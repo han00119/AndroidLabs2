@@ -11,14 +11,6 @@
         android:layout_alignParentTop="true"
         android:textSize="30dp"
         android:text="@string/TVtext" />
-    <TextView
-        android:id="@+id/plcceholder"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"/>
-
-
 
     <Button
         android:id="@+id/button1"
