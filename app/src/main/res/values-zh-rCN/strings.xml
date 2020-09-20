@@ -8,4 +8,5 @@
     <string name="CBtext">看一下这个!</string>
     <string name="Stext">开/关</string>
     <string name="ETtext">写到这里</string>
+    <string name="ToastText">这里是更多的信息</string>
 </resources>
