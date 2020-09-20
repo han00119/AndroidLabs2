@@ -16,11 +16,10 @@
 
     <Button
         android:id="@+id/MyButton"
-        android:layout_width="wrap_content"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyText"
-        android:layout_weight="1"
-        android:layout_gravity="fill"
+        android:layout_marginTop="0dp"
         android:text="@string/Btext" />
 
     <CheckBox
@@ -28,10 +27,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/MyText"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/MyButton"
-        android:text="@+id/CBText"
-        android:layout_weight="1"
-        android:layout_gravity="fill"/>
+        android:text="@string/CBtext" />
 
     <ImageButton
         android:id="@+id/MyImageButton"
