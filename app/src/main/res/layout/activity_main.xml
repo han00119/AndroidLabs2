@@ -17,7 +17,7 @@
 
     <Button
         android:id="@+id/MyButton"
-        android:layout_rowWeight="0.5"
+        android:layout_rowWeight="1"
         android:layout_gravity="fill"
         android:text="@string/Btext" />
 
