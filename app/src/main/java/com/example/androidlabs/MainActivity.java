@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Switch;
@@ -32,10 +33,20 @@ public class MainActivity extends AppCompatActivity {
         CheckBox CB = findViewById(R.id.MyCheckBox);
         ImageButton IB = findViewById(R.id.MyImageButton);
         Switch S = findViewById(R.id.MySwitch);
+        S.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if ( isChecked )
+                {
+                    Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
         EditText ET = findViewById(R.id.MyEditText);
 
         //Toast.makeText(this,"Here is more information", Toast.LENGTH_LONG).show();
-        //Snackbar.make(this, "this String is", Snackbar.LENGTH_LONG).show();
+        //Snackbar.make(S, "this String is" +isChecked, Snackbar.LENGTH_LONG).show();
         //Snackbar.setAction("UNDO", click -> cb.setChecked(!b));
     }
 }
