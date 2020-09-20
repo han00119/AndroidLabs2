@@ -35,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
         Switch S = findViewById(R.id.MySwitch);
         S.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked==true)
                 Snackbar SB = Snackbar.make(S, "this String is " + isChecked, Snackbar.LENGTH_LONG);
-                SB.setAction("UNDO", click -> {
+//                else Snackbar SB = Snackbar.make(S, "this String is " + isChecked, Snackbar.LENGTH_LONG);
+                SB.setAction(getResources().getString(R.string.UndoText), click -> {
                     S.setChecked(!isChecked);
                 });
                 SB.show();
