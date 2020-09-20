@@ -9,15 +9,16 @@
 
     <TextView
         android:id="@+id/MyText"
-        android:layout_columnSpan="2"
+        android:layout_width="match_parent"
         android:layout_rowWeight="1"
+        android:layout_columnSpan="2"
         android:layout_gravity="fill"
         android:text="@string/TVtext"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/MyButton"
-        android:layout_rowWeight="1"
+        android:layout_rowWeight="0.5"
         android:layout_gravity="fill"
         android:text="@string/Btext" />
 
