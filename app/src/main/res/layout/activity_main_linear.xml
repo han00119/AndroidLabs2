@@ -56,7 +56,7 @@
         <EditText
             android:hint="@string/ETtext"
             android:id="@+id/MyEditText"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textCapWords"
             android:layout_height="wrap_content"
             android:layout_width="match_parent" />
 
