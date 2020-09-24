@@ -53,6 +53,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/MyImageButton"
         android:hint="@string/ETtext"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName|textCapWords" />
 
 </RelativeLayout>
