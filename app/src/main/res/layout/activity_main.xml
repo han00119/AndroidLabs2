@@ -36,7 +36,7 @@
         android:layout_rowWeight="1"
         android:src="@drawable/flag"
         />
-
+    
     <Switch
         android:id="@+id/MySwitch"
         android:layout_width="wrap_content"
