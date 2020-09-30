@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidLabs</string>
-    <string name="hello_message">你好世界!</string>
-    <string name="ButtonText">一个按键</string>
+    <string name="email_enter">输入电子邮件：</string>
+    <string name="hint">键入电子邮件</string>
+    <string name="ButtonText">登录</string>
+    <string name="password">输入密码:</string>
 </resources>
