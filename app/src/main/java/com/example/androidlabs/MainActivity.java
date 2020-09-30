@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         et = findViewById(R.id.Email_Enter2);
         TextView tv2 = findViewById(R.id.Password_Enter);
         EditText et2 = findViewById(R.id.Password_Enter2);
+        Button b = (Button)findViewById(R.id.Login_Button);
+        b.setOnClickListener( click -> onPause());
+        prefs = getSharedPreferences("key", Context.MODE_PRIVATE);
     }
 
     @Override
