@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv2 = findViewById(R.id.Password_Enter);
         EditText et2 = findViewById(R.id.Password_Enter2);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -42,3 +44,4 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+}
