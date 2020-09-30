@@ -16,4 +16,5 @@ public class MainActivity extends AppCompatActivity {
     TextView tv = findViewById(R.id.Email_Enter);
     EditText et = findViewById(R.id.Email_Enter2);
     TextView tv2 = findViewById(R.id.Password_Enter);
+    EditText et2 = findViewById(R.id.Password_Enter2);
 }
