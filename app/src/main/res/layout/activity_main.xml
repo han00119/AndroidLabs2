@@ -26,7 +26,8 @@
     <EditText
         android:id="@+id/Password_Enter2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/button"
