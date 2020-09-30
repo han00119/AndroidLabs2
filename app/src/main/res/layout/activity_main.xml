@@ -17,6 +17,7 @@
         android:id="@+id/Email_Enter2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
         android:hint="@string/hint"/>
     <TextView
         android:layout_width="wrap_content"
