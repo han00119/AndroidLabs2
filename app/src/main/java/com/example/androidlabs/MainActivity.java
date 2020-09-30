@@ -12,9 +12,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView tv = findViewById(R.id.Email_Enter);
+        EditText et = findViewById(R.id.Email_Enter2);
+        TextView tv2 = findViewById(R.id.Password_Enter);
+        EditText et2 = findViewById(R.id.Password_Enter2);
     }
-    TextView tv = findViewById(R.id.Email_Enter);
-    EditText et = findViewById(R.id.Email_Enter2);
-    TextView tv2 = findViewById(R.id.Password_Enter);
-    EditText et2 = findViewById(R.id.Password_Enter2);
 }
