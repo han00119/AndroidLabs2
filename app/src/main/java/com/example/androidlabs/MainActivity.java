@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -23,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
         TextView tv2 = findViewById(R.id.Password_Enter);
         EditText et2 = findViewById(R.id.Password_Enter2);
         Button b = (Button)findViewById(R.id.Login_Button);
-        b.setOnClickListener( click -> onPause());
+        b.setOnClickListener( click -> {
+            Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+            goToProfile.putExtra("EMAIL",et.getText().toString() );
+
+        });
         String savedString = prefs.getString("key", "");
         et.setText(savedString);
     }
