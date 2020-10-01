@@ -10,42 +10,50 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/profile"/>
+        android:text="@string/profile"
+        android:id="@+id/tv1"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name"/>
+        android:text="@string/name"
+        android:id="@+id/tv2"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintSecondPage1"/>
+        android:hint="@string/hintSecondPage1"
+        android:id="@+id/et1"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/emailPage2"/>
+        android:text="@string/emailPage2"
+        android:id="@+id/tv3"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintSecondPage2"/>
+        android:hint="@string/hintSecondPage2"
+        android:id="@+id/et2"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/yourPicture"/>
+        android:text="@string/yourPicture"
+        android:id="@+id/tv4"/>
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/picture_frame"/>
+        android:src="@android:drawable/picture_frame"
+        android:id="@+id/ib"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/clickButton"/>
+        android:text="@string/clickButton"
+        android:id="@+id/tv5"/>
 
 
 </LinearLayout>
