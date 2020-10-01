@@ -26,10 +26,11 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tv3 = findViewById(R.id.tv3);
         EditText et2 = findViewById(R.id.et2);
         TextView tv4 = findViewById(R.id.tv4);
-        ImageButton im = findViewById(R.id.ib);
-        im.setOnClickListener(click ->  dispatchTakePictureIntent());
+        //ImageButton im = findViewById(R.id.ib);
+
         TextView tv5 = findViewById(R.id.tv5);
         mImageButton=(ImageButton)findViewById(R.id.ib);
+        mImageButton.setOnClickListener(click ->  dispatchTakePictureIntent());
         Intent fromMain = getIntent();
         //fromMain.getStringExtra("EMAIL");
         et2.setText(fromMain.getStringExtra("EMAIL"));
