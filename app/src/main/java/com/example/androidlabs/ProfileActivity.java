@@ -39,12 +39,14 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         Log.e(ACTIVITY_NAME, "In function:" /*onStart*/);
+        System.out.println("1");
         super.onStart();
     }
 
     @Override
     protected void onResume() {
         Log.e(ACTIVITY_NAME, "In function:" /*onResume*/);
+        System.out.println("1");
         super.onResume();
     }
 
