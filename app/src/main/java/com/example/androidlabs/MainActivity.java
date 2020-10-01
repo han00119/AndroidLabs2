@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         EditText et2 = findViewById(R.id.Password_Enter2);
         Button b = (Button)findViewById(R.id.Login_Button);
         b.setOnClickListener( click -> onPause());
-        prefs = getSharedPreferences("key", Context.MODE_PRIVATE);
+        String savedString = prefs.getString("key", "");
+        et.setText(savedString);
     }
 
     @Override
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
+        super.onPause();
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("key", et.getText().toString());
-        super.onPause();
+        editor.commit();
+
     }
 
     @Override
