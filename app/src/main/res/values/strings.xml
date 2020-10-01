@@ -4,4 +4,11 @@
     <string name="hint">Type email here</string>
     <string name="ButtonText">LOGIN </string>
     <string name="password">Type your password:</string>
+    <string name="profile">Your profile</string>
+    <string name="name">Your name:</string>
+    <string name="hintSecondPage1">Enter your name</string>
+    <string name="emailPage2">Your email:</string>
+    <string name="hintSecondPage2">Enter your email</string>
+    <string name="yourPicture">Your picture:</string>
+    <string name="clickButton">Click the button above to take a picture</string>
 </resources>

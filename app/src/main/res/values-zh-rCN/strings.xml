@@ -5,4 +5,11 @@
     <string name="hint">键入电子邮件</string>
     <string name="ButtonText">登录</string>
     <string name="password">输入密码:</string>
+    <string name="profile">您的资料</string>
+    <string name="name">您的名字:</string>
+    <string name="hintSecondPage1">输入您的名字</string>
+    <string name="emailPage2">您的电子邮件:</string>
+    <string name="hintSecondPage2">输入您的电子邮件</string>
+    <string name="yourPicture">您的照片:</string>
+    <string name="clickButton">点击以上按键来照一个照片</string>
 </resources>
