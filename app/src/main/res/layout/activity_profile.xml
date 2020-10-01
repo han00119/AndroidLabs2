@@ -20,7 +20,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hintSecondPage1"/>
+        android:hint="@string/hintSecondPage1"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hintSecondPage2"/>
+        android:hint="@string/hintSecondPage2"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,7 +39,8 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/picture_frame"/>
 
     <TextView
         android:layout_width="wrap_content"
