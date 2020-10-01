@@ -32,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
         mImageButton=(ImageButton)findViewById(R.id.ib);
         Intent fromMain = getIntent();
         //fromMain.getStringExtra("EMAIL");
-        et1.setText(fromMain.getStringExtra("EMAIL"));
+        et2.setText(fromMain.getStringExtra("EMAIL"));
 
     }
 

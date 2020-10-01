@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener( click -> {
             Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
             goToProfile.putExtra("EMAIL",et.getText().toString() );
+            startActivity(goToProfile);
 
         });
         String savedString = prefs.getString("key", "");
