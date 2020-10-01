@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences prefs=null;
+    SharedPreferences prefs;
     EditText et;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause() {////before leaving this Activity
         super.onPause();
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("key", et.getText().toString());

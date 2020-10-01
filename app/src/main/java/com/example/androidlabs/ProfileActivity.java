@@ -17,7 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.e(ACTIVITY_NAME, "In function:" /*onCreate*/);
+        Log.e(ACTIVITY_NAME, "In function: onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         TextView tv1 = findViewById(R.id.tv1);
@@ -38,33 +38,31 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        Log.e(ACTIVITY_NAME, "In function:" /*onStart*/);
-        System.out.println("1");
+        Log.e(ACTIVITY_NAME, "In function: onStart");
         super.onStart();
     }
 
     @Override
     protected void onResume() {
-        Log.e(ACTIVITY_NAME, "In function:" /*onResume*/);
-        System.out.println("1");
+        Log.e(ACTIVITY_NAME, "In function: onResume");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.e(ACTIVITY_NAME, "In function:" /*onPause*/);
+        Log.e(ACTIVITY_NAME, "In function: onPause");
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        Log.e(ACTIVITY_NAME, "In function:" /*onStop*/);
+        Log.e(ACTIVITY_NAME, "In function: onStop");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.e(ACTIVITY_NAME, "In function:" /*onDestroy*/);
+        Log.e(ACTIVITY_NAME, "In function: onDestroy");
         super.onDestroy();
     }
 
@@ -78,7 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e(ACTIVITY_NAME, "In function:" /*onActivityResult*/);
+        Log.e(ACTIVITY_NAME, "In function: onActivityResult");
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
