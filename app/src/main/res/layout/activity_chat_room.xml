@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:layout_gravity="fill"
             android:id="@+id/B2"
-            android:text="@string/recieve"/>
+            android:text="@string/receive"/>
     </LinearLayout>
 
 </LinearLayout>
