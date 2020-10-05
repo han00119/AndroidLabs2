@@ -13,4 +13,6 @@
     <string name="yourPicture">您的照片:</string>
     <string name="clickButton">点击以上按键来照一个照片</string>
     <string name="GoToChat">去chat</string>
+    <string name="send">发送</string>
+    <string name="receive">接受</string>
 </resources>
