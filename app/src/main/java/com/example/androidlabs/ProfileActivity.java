@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button b = findViewById(R.id.GoToChat);
         b.setOnClickListener(click -> {
-            Intent goToProfile = new Intent(ProfileActivity.this, ProfileActivity.class);
+            Intent goToProfile = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(goToProfile);
         });
     }
