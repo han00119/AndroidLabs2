@@ -55,5 +55,11 @@
         android:text="@string/clickButton"
         android:id="@+id/tv5"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/GoToChat"
+        android:text="@string/GoToChat"/>
+
 
 </LinearLayout>

@@ -12,4 +12,5 @@
     <string name="hintSecondPage2">输入您的电子邮件</string>
     <string name="yourPicture">您的照片:</string>
     <string name="clickButton">点击以上按键来照一个照片</string>
+    <string name="GoToChat">去chat</string>
 </resources>
