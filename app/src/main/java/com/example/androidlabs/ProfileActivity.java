@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -29,13 +30,19 @@ public class ProfileActivity extends AppCompatActivity {
         //ImageButton im = findViewById(R.id.ib);
 
         TextView tv5 = findViewById(R.id.tv5);
-        mImageButton=(ImageButton)findViewById(R.id.ib);
-        mImageButton.setOnClickListener(click ->  dispatchTakePictureIntent());
+        mImageButton = (ImageButton) findViewById(R.id.ib);
+        mImageButton.setOnClickListener(click -> dispatchTakePictureIntent());
         Intent fromMain = getIntent();
         //fromMain.getStringExtra("EMAIL");
         et2.setText(fromMain.getStringExtra("EMAIL"));
 
+        Button b = findViewById(R.id.GoToChat);
+        b.setOnClickListener(click -> {
+            Intent goToProfile = new Intent(ProfileActivity.this, ProfileActivity.class);
+            startActivity(goToProfile);
+        });
     }
+
 
     @Override
     protected void onStart() {
