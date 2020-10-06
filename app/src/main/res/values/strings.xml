@@ -14,4 +14,5 @@
     <string name="GoToChat">Go to chat</string>
     <string name="send">SEND</string>
     <string name="receive">RECEIVE</string>
+    <string name="hintThirdPage">Type here</string>
 </resources>
