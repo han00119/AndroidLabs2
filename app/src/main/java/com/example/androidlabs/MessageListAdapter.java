@@ -81,13 +81,13 @@ public class MessageListAdapter extends BaseAdapter {
     }
 
 
-    class ViewHolderLeft {
+    private class ViewHolderLeft {
         TextView send;
         ImageView avatar;
     }
 
 
-    class ViewHolderRight {
+    private class ViewHolderRight {
         TextView receive;
         ImageView avatar;
     }

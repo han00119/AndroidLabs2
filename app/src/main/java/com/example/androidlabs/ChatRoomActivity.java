@@ -1,5 +1,6 @@
 package com.example.androidlabs;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -35,14 +36,25 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 
 
-        findViewById(R.id.btn_send).setOnClickListener(clk -> {
+        findViewById(R.id.btn_send).setOnClickListener(click -> {
             updateList(ITEM_VIEW_TYPE_SEND, inputText.getText().toString());
         });
 
-        findViewById(R.id.btn_receive).setOnClickListener(clk -> {
+        findViewById(R.id.btn_receive).setOnClickListener(click -> {
             updateList(ITEM_VIEW_TYPE_RECEIVE, inputText.getText().toString());
         });
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
+            findViewById(R.id.lv_chat).setOnLongClickListener(click -> {
+            alertDialogBuilder.setMessage("Do you want to delete this?");
+            alertDialogBuilder.setPositiveButton("Yes", (click2, arg) -> {
+
+            });
+            alertDialogBuilder.setNegativeButton("No", (click2, arg) -> {
+
+            });
+            return true;
+            });
     }
 
     private void updateList(int type, String message) {
