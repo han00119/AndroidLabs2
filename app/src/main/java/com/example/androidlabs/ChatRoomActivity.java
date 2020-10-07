@@ -1,36 +1,56 @@
 package com.example.androidlabs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+
+import static com.example.androidlabs.MessageListAdapter.ITEM_VIEW_TYPE_RECEIVE;
+import static com.example.androidlabs.MessageListAdapter.ITEM_VIEW_TYPE_SEND;
+
+
 public class ChatRoomActivity extends AppCompatActivity {
 
+    private MessageListAdapter adapter;
+    private ArrayList<Message> dataList = new ArrayList<>();
+    private ListView mListView;
+    private EditText inputText;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
-        ListView lv = (ListView) findViewById(R.id.LV);
-        Button b = findViewById(R.id.B);
-        EditText et = findViewById(R.id.ET);
-        Button b2 = findViewById(R.id.B2);
-        b.setOnClickListener(click -> );
-        int getCount(){
 
-        }
-        Object getItem(int position){
+        mListView = findViewById(R.id.lv_chat);
+        inputText = findViewById(R.id.et_input);
 
-        }
-        View getView( ){
+        adapter = new MessageListAdapter(this, dataList);
+        mListView.setAdapter(adapter);
 
-        }
-        long getItemId(int i){
 
-        }
+
+
+        findViewById(R.id.btn_send).setOnClickListener(clk -> {
+            updateList(ITEM_VIEW_TYPE_SEND, inputText.getText().toString());
+        });
+
+        findViewById(R.id.btn_receive).setOnClickListener(clk -> {
+            updateList(ITEM_VIEW_TYPE_RECEIVE, inputText.getText().toString());
+        });
 
     }
+
+    private void updateList(int type, String message) {
+        Message msg = new Message(type, message);
+        dataList.add(msg);
+        adapter.notifyDataSetChanged();
+        inputText.setText("");
+    }
+
+
 }

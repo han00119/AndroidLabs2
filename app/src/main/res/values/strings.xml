@@ -15,4 +15,12 @@
     <string name="send">SEND</string>
     <string name="receive">RECEIVE</string>
     <string name="hintThirdPage">Type here</string>
+    <string name="gui">Look at my GUI:</string>
+    <string name="check_out">Check this out!</string>
+    <string name="click_here">Click here</string>
+    <string name="switch_text">Switch on / off</string>
+    <string name="input_text">Type here</string>
+    <string name="btn_chat">Go to chat</string>
+    <string name="btn_send">Send</string>
+    <string name="btn_receive">Receive</string>
 </resources>
