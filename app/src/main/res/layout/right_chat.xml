@@ -20,6 +20,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:src="@drawable/picture2" />
+        android:src="@drawable/row_receive" />
 
 </LinearLayout>
