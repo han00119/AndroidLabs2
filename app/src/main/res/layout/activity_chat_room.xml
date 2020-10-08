@@ -2,39 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:orientation="vertical">
 
+    <ListView
+        android:id="@+id/LV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom"/>
+
     <LinearLayout
-        android:id="@+id/ll_bottom"
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/btn_send"
+            android:id="@+id/sendBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/btn_send"/>
+            android:text="@string/sendB"/>
 
         <EditText
-            android:id="@+id/et_input"
+            android:id="@+id/inputET"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:hint="@string/input_text"/>
+            android:hint="@string/input"/>
 
         <Button
-            android:id="@+id/btn_receive"
+            android:id="@+id/receiveBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/btn_receive"/>
+            android:text="@string/receiveB"/>
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lv_chat"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/ll_bottom"/>
+
 
 </RelativeLayout>

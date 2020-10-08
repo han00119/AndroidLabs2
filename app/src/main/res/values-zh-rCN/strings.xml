@@ -13,15 +13,8 @@
     <string name="yourPicture">您的照片:</string>
     <string name="clickButton">点击以上按键来照一个照片</string>
     <string name="GoToChat">去chat</string>
-    <string name="send">发送</string>
-    <string name="receive">接受</string>
-    <string name="hintThirdPage">在这里输入</string>
-    <string name="gui">Look at my GUI:</string>
-    <string name="check_out">Check this out!</string>
-    <string name="click_here">Click here</string>
-    <string name="switch_text">Switch on / off</string>
-    <string name="input_text">Type here</string>
-    <string name="btn_chat">去聊天</string>
-    <string name="btn_send">发送</string>
-    <string name="btn_receive">接收</string>
+    <string name="sendB">SEND</string>
+    <string name="receiveB">RECEIVE</string>
+    <string name="input">Type here</string>
+
 </resources>

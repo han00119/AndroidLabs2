@@ -2,28 +2,29 @@ package com.example.androidlabs;
 
 public class Message {
 
-        private String msg;
-        private int msgType;
+        private String message;
+        private int messageType;
 
-        public Message(int msgType, String msg) {
-            this.msg = msg;
-            this.msgType = msgType;
+        public Message(int messageType, String message) {
+            this.message = message;
+            this.messageType = messageType;
         }
 
-        public String getMsg() {
-            return msg;
+        public String getMessage() {
+            return message;
         }
 
-        public void setMsg(String msg) {
-            this.msg = msg;
+        public int getMessageType () {
+        return messageType;
         }
 
-        public int getMsgType() {
-            return msgType;
+        public void setMessage(String message) {
+
+            this.message = message;
         }
 
-        public void setMsgType(int msgType) {
-            this.msgType = msgType;
+        public void setMessageType(int messageType) {
+            this.messageType = messageType;
         }
     }
 
