@@ -9,7 +9,10 @@ public class Message {
             this.message = message;
             this.messageType = messageType;
         }
+        public Message( String message) {
+           this.message = message;
 
+    }
         public String getMessage() {
             return message;
         }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,10 +40,12 @@ public class ChatRoomActivity extends AppCompatActivity {
         addButton1.setOnClickListener( click -> {
             listInput (1,etText.getText().toString());
             adapter.notifyDataSetChanged();
+            etText.setText("");
         });
         Button addButton2 = findViewById(R.id.receiveBtn);
         addButton2.setOnClickListener( click -> {
             listInput (2,etText.getText().toString());
+            etText.setText("");
             adapter.notifyDataSetChanged();
         });
         adapter = new MyAdapter();
@@ -51,15 +54,20 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 
 
-           myListView.setOnLongClickListener( (p, b, pos, id) -> {
+           myListView.setOnItemLongClickListener( ( p, b, pos, id) -> {
                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-
                alertDialogBuilder.setTitle("Do you want to delete this?");
-               alertDialogBuilder.setMessage("The selected row is: " + pos +
+               alertDialogBuilder.setMessage("The selected row is: " + (pos+1)+ " " +
                                                "The database id is:" + id);
                alertDialogBuilder.setPositiveButton("Yes", (click, arg) -> {
-                   myList.remove(pos);
+                   //listDelete(p.getItemAtPosition(pos).toString());
+//                   MyList.remove(adapter.getItem(pos));
+//                   adapter.notifyDataSetChanged();
+                   Message yyyy=myList.get(pos);
+                   myList.remove(yyyy);
                    adapter.notifyDataSetChanged();
+                   //etText.setText("");
+                   myListView.setAdapter(new MyAdapter());
                });
                alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
 
@@ -71,6 +79,12 @@ public class ChatRoomActivity extends AppCompatActivity {
     private void listInput(int messagetype, String message) {
         Message message1 = new Message(messagetype, message);
         myList.add(message1);
+        adapter.notifyDataSetChanged();
+
+    }
+    private void listDelete(String message) {
+        Message message1 = new Message(message);
+        myList.remove(message1);
         adapter.notifyDataSetChanged();
 
     }
@@ -104,7 +118,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             Message mess1=getItem(i);
             LayoutInflater inflater = getLayoutInflater();
-            View newView=old;
+            View newView = old;
             if(getItem(i).getMessageType()==1) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.left_chat, parent, false);
@@ -122,6 +136,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     ImageView imv1 = newView.findViewById(R.id.img_right);
                 }
             }
+
 
 
 
