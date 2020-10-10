@@ -119,7 +119,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             Message mess1=getItem(i);
             LayoutInflater inflater = getLayoutInflater();
             View newView = old;
-            if(getItem(i).getMessageType()==1) {
+            if(getItem(i).getMessageType()==2) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.left_chat, parent, false);
                     ImageView imv1 = newView.findViewById(R.id.img_left);
@@ -127,7 +127,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     tView.setText(getItem(i).getMessage().toString());
                 }
             }
-            if(getItem(i).getMessageType()==2) {
+            if(getItem(i).getMessageType()==1) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.right_chat, parent, false);
 
