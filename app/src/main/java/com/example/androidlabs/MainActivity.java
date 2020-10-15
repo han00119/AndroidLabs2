@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(goToProfile);
 
         });
-        String savedString = prefs.getString("key", "");
+        String savedString = prefs.getString("key", "");///every time on create
         et.setText(savedString);
     }
 
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {////before leaving this Activity
+    protected void onPause() {////before leaving this Activity,when register
         super.onPause();
-        SharedPreferences.Editor editor = prefs.edit();
+        SharedPreferences.Editor editor = prefs.edit();////prefs taking note
         editor.putString("key", et.getText().toString());
         editor.commit();
 
