@@ -1,6 +1,7 @@
 package com.example.androidlabs;
 
 import android.app.AlertDialog;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,10 @@ public class ChatRoomActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
+
+        MyDatabaseOpener dbHelper = new MyDatabaseOpener(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
 
         ListView myListView = findViewById(R.id.LV);
         EditText etText = findViewById(R.id.inputET);
