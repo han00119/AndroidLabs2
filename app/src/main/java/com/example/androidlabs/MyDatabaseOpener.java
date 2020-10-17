@@ -7,13 +7,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyDatabaseOpener extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Lab5Database";
     public static final String ID = "_id";
+    public static final String Message = "Message";
+    public static final String IsSent = "IsSent";
 
     public MyDatabaseOpener(Context ctx){
         super(ctx, DATABASE_NAME, null, 1);
     }
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE " + DATABASE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT ");
+        db.execSQL("CREATE TABLE " + DATABASE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + Message + " TEXT," + IsSent + " TEXT )");
 
     }
 
