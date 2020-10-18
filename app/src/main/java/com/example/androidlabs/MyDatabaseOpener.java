@@ -18,7 +18,7 @@ public class MyDatabaseOpener extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE " + DATABASE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + MESSAGE + " TEXT," + ISSENT + " INTEGER )");
+                + MESSAGE + " TEXT," + ISSENT + " TEXT)");
 
     }
 
