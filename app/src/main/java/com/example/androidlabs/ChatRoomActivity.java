@@ -48,7 +48,9 @@ public class ChatRoomActivity extends AppCompatActivity {
         cv = new ContentValues();
 
         String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.MESSAGE, MyDatabaseOpener.ISSENT};
+
         Cursor result = db.query(false, MyDatabaseOpener.DATABASE_NAME, columns, null, null, null, null, null, null);
+
         int ColIndex = result.getColumnIndex(MyDatabaseOpener.ISSENT);
         int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.MESSAGE);
         int IDColIndex = result.getColumnIndex(MyDatabaseOpener.ID);
@@ -168,7 +170,8 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         @Override
         public long getItemId(int i) {
-            return i;
+
+            return db.;
         }
 
         @Override

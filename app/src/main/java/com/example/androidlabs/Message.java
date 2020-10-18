@@ -49,12 +49,12 @@ public class Message {
 //            this.messageType = messageType;
 //        }
 
-        public void setIsSent () {
+        public void setIsSent (boolean isSent) {
             this.isSent = isSent;
         }
 
 
-        public void setId () {
+        public void setId (int id) {
             this.id = id;
         }
 

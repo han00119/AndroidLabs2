@@ -1,5 +1,6 @@
 package com.example.androidlabs;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -11,13 +12,13 @@ public class MyDatabaseOpener extends SQLiteOpenHelper {
     public static final String ISSENT = "IsSent";
     public static final int VERSION_NUMBER = 1;
 
-    public MyDatabaseOpener(Context ctx){
+    public MyDatabaseOpener(Activity ctx){
         super(ctx, DATABASE_NAME, null, VERSION_NUMBER);
     }
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE " + DATABASE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + MESSAGE + " TEXT," + ISSENT + " TEXT )");
+                + MESSAGE + " TEXT," + ISSENT + " INTEGER )");
 
     }
 
