@@ -25,7 +25,6 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.example.androidlabs.MyDatabaseOpener.IsSent;
 
 
 public class ChatRoomActivity extends AppCompatActivity {
@@ -33,19 +32,25 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     private MyAdapter adapter;
     private ArrayList<Message> myList = new ArrayList<>();
+    MyDatabaseOpener dbHelper;
+    SQLiteDatabase db;
+    ContentValues cv;
+    String Message;
+    Boolean Send;
+    long ID;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
-        MyDatabaseOpener dbHelper = new MyDatabaseOpener(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+        dbHelper = new MyDatabaseOpener(this);
+        db = dbHelper.getWritableDatabase();
+        cv = new ContentValues();
 
-        String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.Message, MyDatabaseOpener.IsSent};
+        String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.MESSAGE, MyDatabaseOpener.ISSENT};
         Cursor result = db.query(false, MyDatabaseOpener.DATABASE_NAME, columns, null, null, null, null, null, null);
-        int ColIndex = result.getColumnIndex(MyDatabaseOpener.IsSent);
-        int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.Message);
+        int ColIndex = result.getColumnIndex(MyDatabaseOpener.ISSENT);
+        int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.MESSAGE);
         int IDColIndex = result.getColumnIndex(MyDatabaseOpener.ID);
 
 
@@ -53,18 +58,20 @@ public class ChatRoomActivity extends AppCompatActivity {
         EditText etText = findViewById(R.id.inputET);
         Button addButton1 = findViewById(R.id.sendBtn);
         addButton1.setOnClickListener( click -> {
-            listInput (1,etText.getText().toString());
-            cv.put(dbHelper.Message, MyDatabaseOpener.Message);
-            cv.put(IsSent, MyDatabaseOpener.IsSent);
+            Send = true;
+            listInput (true,etText.getText().toString());
+            cv.put(dbHelper.MESSAGE, Message);
+            cv.put(dbHelper.ISSENT, Send);
             long id = db.insert(MyDatabaseOpener.DATABASE_NAME, null, cv);
             adapter.notifyDataSetChanged();
             etText.setText("");
         });
         Button addButton2 = findViewById(R.id.receiveBtn);
         addButton2.setOnClickListener( click -> {
-            listInput (2,etText.getText().toString());
-            cv.put(dbHelper.Message, MyDatabaseOpener.Message);
-            cv.put(IsSent, MyDatabaseOpener.IsSent);
+            Send = false;
+            listInput (false,etText.getText().toString());
+            cv.put(dbHelper.MESSAGE, Message);
+            cv.put(dbHelper.ISSENT, Send);
             long id = db.insert(MyDatabaseOpener.DATABASE_NAME, null, cv);
             adapter.notifyDataSetChanged();
             etText.setText("");
@@ -72,16 +79,13 @@ public class ChatRoomActivity extends AppCompatActivity {
         adapter = new MyAdapter();
         myListView.setAdapter(adapter);
 
-        while(result.moveToNext()) {
-            String Message = result.getString(MessageColIndex);
-            Boolean Send = Boolean.valueOf(result.getString(ColIndex));
-            long ID = result.getLong(IDColIndex);
+        while(result.moveToNext())
+        {
+            Boolean send = Boolean.valueOf(result.getString(IDColIndex));
+            String message = result.getString(MessageColIndex);
+            long id = result.getLong(ColIndex);
 
-            myList.add(new Message(Message, Send, ID));
-
-            adapter.notifyDataSetChanged();
-            myListView.setAdapter(adapter);
-            //printCursor(result);
+            myList.add(new Message(id, message, send));
         }
 
 
@@ -106,12 +110,17 @@ public class ChatRoomActivity extends AppCompatActivity {
 
                alertDialogBuilder.create().show();
                 return true;
+
             });
+
+        adapter.notifyDataSetChanged();
+        myListView.setAdapter(adapter);
+        printCursor(result, 1);
         }
 
 
-    private void listInput(int messagetype, String message) {
-        Message message1 = new Message(messagetype, message);
+    private void listInput(boolean Send, String message) {
+        Message message1 = new Message(ID, message, Send);
         myList.add(message1);
         adapter.notifyDataSetChanged();
 
@@ -123,20 +132,20 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     }
     public void printCursor( Cursor c, int version){
+        int IsSentColIndex = c.getColumnIndex(MyDatabaseOpener.ISSENT);
+        int MessageColIndex = c.getColumnIndex(MyDatabaseOpener.MESSAGE);
+        int IDColIndex = c.getColumnIndex(MyDatabaseOpener.ID);
         c.moveToFirst();
         Log.i("ChatRoomActivity", "The version number is " + db.getVersion());
         Log.i("ChatRoomActivity", "The number of items in the cursor is " + c.getColumnCount());
-        Log.i("ChatRoomActivity", "The name of the columns are " + Arrays.toString(c.getColumnName()));
+        Log.i("ChatRoomActivity", "The name of the columns are " + Arrays.toString(c.getColumnNames()));
         Log.i("ChatRoomActivity", "the number of rows is " + c.getCount());
-        int IsSentColIndex = c.getColumnIndex(MyDatabaseOpener.IsSent);
-        int MessageColIndex = c.getColumnIndex(MyDatabaseOpener.Message);
-        int IDColIndex = c.getColumnIndex(MyDatabaseOpener.ID);
 
         while (c.moveToNext()){
             String Message = c.getString(MessageColIndex);
             Long ID = c.getLong(IDColIndex);
             Boolean IsSent = Boolean.valueOf(c.getString(IsSentColIndex));
-            Log.i("ChatRoomActivity", "the column ID is " + ID ", The message is " + Message + ", It is " + IsSent);
+            Log.i("ChatRoomActivity", "the column ID is " + ID + ", The message is " + MyDatabaseOpener.MESSAGE + ", It is " + MyDatabaseOpener.ISSENT);
 
 
         }
@@ -145,12 +154,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     private class MyAdapter extends BaseAdapter {
 
-
-
-
         private LayoutInflater myInflater;
-
-
 
         @Override
         public int getCount() {
@@ -170,34 +174,28 @@ public class ChatRoomActivity extends AppCompatActivity {
         @Override
         public View getView(int i, View old, ViewGroup parent) {
 
-
-            Message mess1=getItem(i);
+            Message mess1 = getItem(i);
             LayoutInflater inflater = getLayoutInflater();
             View newView = old;
-            if(getItem(i).getMessageType()==2) {
+            if (!getItem(i).getIsSent()) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.left_chat, parent, false);
                     ImageView imv1 = newView.findViewById(R.id.img_left);
                     TextView tView = newView.findViewById(R.id.tv_left);
-                    tView.setText(getItem(i).getMessage().toString());
+                    tView.setText(getItem(i).getMessage());
                 }
             }
-            if(getItem(i).getMessageType()==1) {
+            if (getItem(i).getIsSent()) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.right_chat, parent, false);
 
                     TextView tView = newView.findViewById(R.id.tv_right);
-                    tView.setText(getItem(i).getMessage().toString());
                     ImageView imv1 = newView.findViewById(R.id.img_right);
+                    tView.setText(getItem(i).getMessage());
+
                 }
             }
-
-
-
-
             return newView;
-       }
-
+        }
     }
-
 }
