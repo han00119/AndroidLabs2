@@ -25,6 +25,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static java.sql.Types.INTEGER;
 
 
 public class ChatRoomActivity extends AppCompatActivity {
@@ -38,95 +39,102 @@ public class ChatRoomActivity extends AppCompatActivity {
     String Message;
     Boolean Send;
     long ID;
+    Cursor result;
+    ListView myListView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
-        dbHelper = new MyDatabaseOpener(this);
-        db = dbHelper.getWritableDatabase();
         cv = new ContentValues();
-
-        String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.MESSAGE, MyDatabaseOpener.ISSENT};
-
-        Cursor result = db.query(false, MyDatabaseOpener.DATABASE_NAME, columns, null, null, null, null, null, null);
-
-        int ColIndex = result.getColumnIndex(MyDatabaseOpener.ISSENT);
-        int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.MESSAGE);
-        int IDColIndex = result.getColumnIndex(MyDatabaseOpener.ID);
-
-
-        ListView myListView = findViewById(R.id.LV);
+        myListView = findViewById(R.id.LV);
         EditText etText = findViewById(R.id.inputET);
         Button addButton1 = findViewById(R.id.sendBtn);
-        addButton1.setOnClickListener( click -> {
-            Send = true;
-            cv.put(MyDatabaseOpener.MESSAGE, Message);
-            cv.put(MyDatabaseOpener.ISSENT, Send);
-            long id = db.insert(MyDatabaseOpener.DATABASE_NAME, null, cv);
-            listInput (id, etText.getText().toString(), Send);
-
-            adapter.notifyDataSetChanged();
-            etText.setText("");
-        });
         Button addButton2 = findViewById(R.id.receiveBtn);
-        addButton2.setOnClickListener( click -> {
-            Send = false;
-            cv.put(MyDatabaseOpener.MESSAGE, Message);
-            cv.put(MyDatabaseOpener.ISSENT, Send);
-            long id = db.insert(MyDatabaseOpener.DATABASE_NAME, null, cv);
-            listInput (id, etText.getText().toString(), Send);
+        getFromDB();
 
-            adapter.notifyDataSetChanged();
+
+        addButton1.setOnClickListener( click -> {
+//            Send = true;
+            String message = etText.getText().toString();
+
+            cv.put(MyDatabaseOpener.MESSAGE, Message);
+            cv.put(MyDatabaseOpener.ISSENT, Send.toString());
+
+            long id = db.insert(MyDatabaseOpener.DATABASE_NAME, null, cv);
+
+            listInput (id, message, Send);
+
             etText.setText("");
         });
+        addButton2.setOnClickListener( click -> {
+//            Send = false;
+            String message = etText.getText().toString();
+            cv.put(MyDatabaseOpener.MESSAGE, Message);
+            cv.put(MyDatabaseOpener.ISSENT, Send.toString());
+            long id = db.insert(MyDatabaseOpener.DATABASE_NAME, null, cv);
+            listInput (id, message, Send);
+
+            etText.setText("");
+        });
+        alert (myListView);
+
         adapter = new MyAdapter();
         myListView.setAdapter(adapter);
 
-        result.moveToFirst();
-        while(!result.isAfterLast())
-        {
-            Boolean send = Boolean.valueOf(result.getString(IDColIndex));
-            String message = result.getString(MessageColIndex);
-            long id = result.getLong(ColIndex);
-
-            myList.add(new Message(id, message, send));
-            result.moveToNext();
-        }
-
-
-           myListView.setOnItemLongClickListener( ( p, b, pos, id) -> {
-               AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-               alertDialogBuilder.setTitle("Do you want to delete this?");
-               alertDialogBuilder.setMessage("The selected row is: " + (pos+1)+ " " +
-                                               "The database id is:" + id);
-               alertDialogBuilder.setPositiveButton("Yes", (click, arg) -> {
-                   //listDelete(p.getItemAtPosition(pos).toString());
-//                   MyList.remove(adapter.getItem(pos));
-//                   adapter.notifyDataSetChanged();
-                   Message yyyy=myList.get(pos);
-                   myList.remove(yyyy);
-                   adapter.notifyDataSetChanged();
-                   //etText.setText("");
-                   db.delete(MyDatabaseOpener.DATABASE_NAME, "_id=?", new String[]{ Long.toString(ID) });
-                   myListView.setAdapter(new MyAdapter());
-               });
-               alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
-
-
-
-               alertDialogBuilder.create().show();
-                return true;
-
-            });
-
-        adapter.notifyDataSetChanged();
-        myListView.setAdapter(adapter);
-
+        //adapter.notifyDataSetChanged();
+        //myListView.setAdapter(adapter);
 
         printCursor(result, 1);
         }
+    private void alert (ListView myListView){
+        myListView.setOnItemLongClickListener( ( p, b, pos, id) -> {
+            Message M=myList.get(pos);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Do you want to delete this?");
+            alertDialogBuilder.setMessage("The selected row is: " + (pos+1)+ " " +
+                    "The database id is:" + id);
+            alertDialogBuilder.setPositiveButton("Yes", (click, arg) -> {
+                //listDelete(p.getItemAtPosition(pos).toString());
+//                   MyList.remove(adapter.getItem(pos));
+//                   adapter.notifyDataSetChanged();
+                myList.remove(M);
+                DBdelete(M);
+                adapter.notifyDataSetChanged();
+                //myListView.setAdapter(new MyAdapter());
+            });
+            alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
 
+
+
+            alertDialogBuilder.create().show();
+            return true;
+        });
+    }
+
+      private void getFromDB(){
+          dbHelper = new MyDatabaseOpener(this);
+          db = dbHelper.getWritableDatabase();
+
+
+          String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.MESSAGE, MyDatabaseOpener.ISSENT};
+
+          result = db.query(false, MyDatabaseOpener.DATABASE_NAME, columns, null, null, null, null, null, null);
+
+          int ColIndex = result.getColumnIndex(MyDatabaseOpener.ISSENT);
+          int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.MESSAGE);
+          int IDColIndex = result.getColumnIndex(MyDatabaseOpener.ID);
+          // result.moveToFirst();
+          while(result.moveToNext())
+          {
+              Boolean send = Boolean.valueOf(result.getString(IDColIndex));
+              String message = result.getString(MessageColIndex);
+              long id = result.getLong(ColIndex);
+
+              myList.add(new Message(id, message, send));
+              // result.moveToNext();
+          }
+      }
 
     private void listInput(long id, String message, boolean Send) {
         Message message1 = new Message(id, message, Send);
@@ -140,6 +148,11 @@ public class ChatRoomActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
     }
+
+    private void DBdelete(Message m){
+        db.delete(MyDatabaseOpener.DATABASE_NAME, "_id=?", new String[]{ Long.toString(m.getId()) });
+    }
+
     public void printCursor( Cursor c, int version){
         int IsSentColIndex = c.getColumnIndex(MyDatabaseOpener.ISSENT);
         int MessageColIndex = c.getColumnIndex(MyDatabaseOpener.MESSAGE);
@@ -187,7 +200,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             Message mess1 = getItem(i);
             LayoutInflater inflater = getLayoutInflater();
             View newView = old;
-            if (!getItem(i).getIsSent()) {
+            if (!getItem(i).getIsSent ()) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.left_chat, parent, false);
                     ImageView imv1 = newView.findViewById(R.id.img_left);
@@ -195,7 +208,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     tView.setText(getItem(i).getMessage());
                 }
             }
-            if (getItem(i).getIsSent()) {
+            if (getItem(i).getIsSent ()) {
                 if (newView == null) {
                     newView = inflater.inflate(R.layout.right_chat, parent, false);
 
