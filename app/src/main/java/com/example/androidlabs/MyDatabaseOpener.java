@@ -11,7 +11,7 @@ public class MyDatabaseOpener extends SQLiteOpenHelper {
     public static final String ID = "_id";
     public static final String MESSAGE = "Message";
     public static final String ISSENT = "IsSent";
-    public static final int VERSION_NUMBER = 1;
+    public static final int VERSION_NUMBER = 2;
 
     public MyDatabaseOpener(Activity ctx){
         super(ctx, DATABASE_NAME, null, VERSION_NUMBER);
