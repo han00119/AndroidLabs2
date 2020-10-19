@@ -11,15 +11,15 @@ public class MyDatabaseOpener extends SQLiteOpenHelper {
     public static final String ID = "_id";
     public static final String MESSAGE = "Message";
     public static final String ISSENT = "IsSent";
-    public static final int VERSION_NUMBER = 2;
+    public static final int VERSION_NUMBER = 3;
 
     public MyDatabaseOpener(Activity ctx){
         super(ctx, DATABASE_NAME, null, VERSION_NUMBER);
     }
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + MESSAGE + " TEXT," + ISSENT + " TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + MESSAGE + " TEXT," + ISSENT + " INTEGER);");
 
     }
 

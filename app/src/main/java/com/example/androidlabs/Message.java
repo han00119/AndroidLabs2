@@ -12,7 +12,7 @@ public class Message {
 //            this.messageType = messageType;
 //        }
 
-        public Message(long ID, String Message, Boolean Send){
+        public Message(long ID, String Message, boolean Send){
             this.message = Message;
             this.isSent = Send;
             this.id = ID;

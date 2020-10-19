@@ -79,7 +79,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         myListView.setOnItemLongClickListener( ( p, b, pos, id) -> {
             alert(pos, id);
             return true;
-                });
+        });
 
 //        adapter = new MyAdapter();
 //        myListView.setAdapter(adapter);
@@ -88,52 +88,52 @@ public class ChatRoomActivity extends AppCompatActivity {
         //myListView.setAdapter(adapter);
 
         printCursor(result, 1);
-        }
+    }
     private void alert (int pos, long id){
-            Message M = myList.get(pos);
+        Message M = myList.get(pos);
 
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("Do you want to delete this?");
-            alertDialogBuilder.setMessage("The selected row is: " + (pos+1)+ " " +
-                    "The database id is:" + id);
-            alertDialogBuilder.setPositiveButton("Yes", (click, arg) -> {
-                //listDelete(p.getItemAtPosition(pos).toString());
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Do you want to delete this?");
+        alertDialogBuilder.setMessage("The selected row is: " + (pos+1)+ " " +
+                "The database id is:" + id);
+        alertDialogBuilder.setPositiveButton("Yes", (click, arg) -> {
+            //listDelete(p.getItemAtPosition(pos).toString());
 //                   MyList.remove(adapter.getItem(pos));
 //                   adapter.notifyDataSetChanged();
-                myList.remove(M);
-                DBdelete(M);
-                adapter.notifyDataSetChanged();
-                //myListView.setAdapter(new MyAdapter());
-            });
-            alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
+            myList.remove(M);
+            DBdelete(M);
+            adapter.notifyDataSetChanged();
+            //myListView.setAdapter(new MyAdapter());
+        });
+        alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
 
-            alertDialogBuilder.create().show();
+        alertDialogBuilder.create().show();
     }
 
-      private void getFromDB(){
-          dbHelper = new MyDatabaseOpener(this);
-          db = dbHelper.getWritableDatabase();
+    private void getFromDB(){
+        dbHelper = new MyDatabaseOpener(this);
+        db = dbHelper.getWritableDatabase();
 
 
-          String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.MESSAGE, MyDatabaseOpener.ISSENT};
+        String [] columns = {MyDatabaseOpener.ID, MyDatabaseOpener.MESSAGE, MyDatabaseOpener.ISSENT};
 
-          result = db.query(false, MyDatabaseOpener.TABLE_NAME, columns, null, null, null, null, null, null);
+        result = db.query(false, MyDatabaseOpener.TABLE_NAME, columns, null, null, null, null, null, null);
 
-          int ColIndex = result.getColumnIndex(MyDatabaseOpener.ISSENT);
-          int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.MESSAGE);
-          int IDColIndex = result.getColumnIndex(MyDatabaseOpener.ID);
-          // result.moveToFirst();
+        int ColIndex = result.getColumnIndex(MyDatabaseOpener.ISSENT);
+        int MessageColIndex = result.getColumnIndex(MyDatabaseOpener.MESSAGE);
+        int IDColIndex = result.getColumnIndex(MyDatabaseOpener.ID);
+        // result.moveToFirst();
 
-          while(result.moveToNext())
-          {
-              Boolean send = Boolean.valueOf(result.getString(IDColIndex));
-              String message = result.getString(MessageColIndex);
-              long id = result.getLong(ColIndex);
+        while(result.moveToNext())
+        {
+            Boolean send = Boolean.valueOf(result.getString(IDColIndex));
+            String message = result.getString(MessageColIndex);
+            long id = result.getLong(ColIndex);
 
-              myList.add(new Message(id, message, send));
-              // result.moveToNext();
-          }
-      }
+            myList.add(new Message(id, message, send));
+            // result.moveToNext();
+        }
+    }
 
     private void listInput(long id, String message, boolean Send) {
         Message message1 = new Message(id, message, Send);
