@@ -198,11 +198,11 @@ public class ChatRoomActivity extends AppCompatActivity {
         public View getView(int i, View old, ViewGroup parent) {
 
             Message mess1 = getItem(i);
-            LayoutInflater inflater = getLayoutInflater();
+            myInflater = getLayoutInflater();
             View newView = old;
             if (!getItem(i).getIsSent ()) {
                 if (newView == null) {
-                    newView = inflater.inflate(R.layout.left_chat, parent, false);
+                    newView = myInflater.inflate(R.layout.left_chat, parent, false);
                     ImageView imv1 = newView.findViewById(R.id.img_left);
                     TextView tView = newView.findViewById(R.id.tv_left);
                     tView.setText(getItem(i).getMessage());
@@ -210,7 +210,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
             if (getItem(i).getIsSent ()) {
                 if (newView == null) {
-                    newView = inflater.inflate(R.layout.right_chat, parent, false);
+                    newView = myInflater.inflate(R.layout.right_chat, parent, false);
 
                     TextView tView = newView.findViewById(R.id.tv_right);
                     ImageView imv1 = newView.findViewById(R.id.img_right);
