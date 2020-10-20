@@ -13,9 +13,9 @@ public class Message {
 //        }
 
         public Message(long ID, String Message, boolean Send){
-            this.message = Message;
-            this.isSent = Send;
-            this.id = ID;
+            message = Message;
+            isSent = Send;
+            id = ID;
         }
         public Message( String message) {
            this.message = message;
