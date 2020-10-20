@@ -137,8 +137,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 SOR = "a receive message";
             }
             Log.i("ChatRoomActivity", "the column ID is " + ID + ", The message is " + message + ", It is " + SOR);
-
-
+            
         }
     }
 
