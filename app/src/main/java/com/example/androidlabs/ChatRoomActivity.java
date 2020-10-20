@@ -126,10 +126,17 @@ public class ChatRoomActivity extends AppCompatActivity {
         Log.i("ChatRoomActivity", "the number of rows is " + c.getCount());
 
         while (c.moveToNext()){
-            String Message = c.getString(messageColIndex);
+            String SOR = "null";
+            String message = c.getString(messageColIndex);
             long ID = c.getLong(idColIndex);
             boolean IsSent = Boolean.parseBoolean(c.getString(isSentColumnIndex));
-            Log.i("ChatRoomActivity", "the column ID is " + ID + ", The message is " + Message + ", It is " + IsSent);
+            if (IsSent == true){
+                SOR = "a send message";
+            }
+            if (IsSent == false){
+                SOR = "a receive message";
+            }
+            Log.i("ChatRoomActivity", "the column ID is " + ID + ", The message is " + message + ", It is " + SOR);
 
 
         }
