@@ -93,8 +93,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         addButton1.setOnClickListener( click -> {
             String message = etText.getText().toString();
             cv = new ContentValues();
-            cv.put(MyDatabaseOpener.MESSAGE, Message);
-            cv.put(MyDatabaseOpener.ISSENT, Send.toString());
+            cv.put(MyDatabaseOpener.MESSAGE, message);
+            cv.put(MyDatabaseOpener.ISSENT, "true");
             long id = db.insert(MyDatabaseOpener.TABLE_NAME, null, cv);
             Message message1 = new Message(id, message, true);
             myList.add(message1);
@@ -104,8 +104,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         addButton2.setOnClickListener( click -> {
             String message = etText.getText().toString();
             cv = new ContentValues();
-            cv.put(MyDatabaseOpener.MESSAGE, Message);
-            cv.put(MyDatabaseOpener.ISSENT, Send.toString());
+            cv.put(MyDatabaseOpener.MESSAGE, message);
+            cv.put(MyDatabaseOpener.ISSENT, "false");
             long id = db.insert(MyDatabaseOpener.TABLE_NAME, null, cv);
             Message message2 = new Message(id, message, false);
             myList.add(message2);
