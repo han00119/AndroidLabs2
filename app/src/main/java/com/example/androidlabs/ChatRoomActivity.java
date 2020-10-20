@@ -81,6 +81,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 myList.remove(M);
                 db.delete(MyDatabaseOpener.TABLE_NAME, "_id=?", new String[]{ Long.toString(M.getId()) });
                 adapter.notifyDataSetChanged();
+                myListView.setAdapter(adapter);
             });
             alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
 
@@ -99,6 +100,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             Message message1 = new Message(id, message, true);
             myList.add(message1);
             adapter.notifyDataSetChanged();
+            myListView.setAdapter(adapter);
             etText.setText("");
         });
         addButton2.setOnClickListener( click -> {
@@ -110,6 +112,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             Message message2 = new Message(id, message, false);
             myList.add(message2);
             adapter.notifyDataSetChanged();
+            myListView.setAdapter(adapter);
             etText.setText("");
         });
 
@@ -137,7 +140,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 SOR = "a receive message";
             }
             Log.i("ChatRoomActivity", "the column ID is " + ID + ", The message is " + message + ", It is " + SOR);
-            
+
         }
     }
 
