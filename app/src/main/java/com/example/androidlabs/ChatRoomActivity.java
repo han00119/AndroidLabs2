@@ -124,24 +124,26 @@ public class ChatRoomActivity extends AppCompatActivity {
         //int IDColIndex = c.getColumnIndex(MyDatabaseOpener.ID);
         c.moveToFirst();
         Log.i("ChatRoomActivity", "The version number is " + db.getVersion());
-        Log.i("ChatRoomActivity", "The number of items in the cursor is " + c.getColumnCount());
+        Log.i("ChatRoomActivity", "The number of columns in the cursor is " + c.getColumnCount());
         Log.i("ChatRoomActivity", "The name of the columns are " + Arrays.toString(c.getColumnNames()));
         Log.i("ChatRoomActivity", "the number of rows is " + c.getCount());
 
-        while (c.moveToNext()){
-            String SOR = "null";
+        do {
+            String SOR = null;
             String message = c.getString(messageColIndex);
+
             long ID = c.getLong(idColIndex);
             boolean IsSent = Boolean.parseBoolean(c.getString(isSentColumnIndex));
             if (IsSent == true){
                 SOR = "a send message";
             }
-            if (IsSent == false){
+            if (IsSent == false) {
                 SOR = "a receive message";
             }
             Log.i("ChatRoomActivity", "the column ID is " + ID + ", The message is " + message + ", It is " + SOR);
 
         }
+        while(c.moveToNext());
     }
 
     private class MyAdapter extends BaseAdapter {
