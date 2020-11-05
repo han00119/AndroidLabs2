@@ -15,4 +15,9 @@
     <string name="sendB">SEND</string>
     <string name="receiveB">RECEIVE</string>
     <string name="input">Type here</string>
+    <string name="goToWeather">Go to weather forecast</string>
+    <string name="CurTemp">Current Temperature:</string>
+    <string name="MinTemp">Minimum Temperature:</string>
+    <string name="MaxTemp">Maximum Temperature:</string>
+    <string name="UVrating">UV rating:</string>
 </resources>

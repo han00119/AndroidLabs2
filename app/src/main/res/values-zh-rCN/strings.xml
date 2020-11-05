@@ -16,5 +16,10 @@
     <string name="sendB">发送</string>
     <string name="receiveB">接收</string>
     <string name="input">在此输入</string>
+    <string name="goToWeather">查看天气预报</string>
+    <string name="CurTemp">现在温度:</string>
+    <string name="MinTemp">最低温度</string>
+    <string name="MaxTemp">最高温度:</string>
+    <string name="UVrating">紫外线:</string>
 
 </resources>

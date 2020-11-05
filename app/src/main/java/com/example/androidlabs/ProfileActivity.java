@@ -28,6 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
         EditText et2 = findViewById(R.id.et2);
         TextView tv4 = findViewById(R.id.tv4);
         //ImageButton im = findViewById(R.id.ib);
+        Button goToWeather = findViewById(R.id.goToWeather);
 
         TextView tv5 = findViewById(R.id.tv5);
         mImageButton = (ImageButton) findViewById(R.id.ib);
@@ -40,6 +41,11 @@ public class ProfileActivity extends AppCompatActivity {
         btn.setOnClickListener(click -> {
             Intent goToProfile = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(goToProfile);
+        });
+
+        goToWeather.setOnClickListener(click -> {
+            Intent i = new Intent(ProfileActivity.this, WeatherForecast.class);
+            startActivity(i);
         });
     }
 
