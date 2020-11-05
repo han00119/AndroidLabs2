@@ -169,6 +169,7 @@ public class WeatherForecast extends AppCompatActivity {
             return bm;
         }
 
+
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
