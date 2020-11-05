@@ -96,7 +96,7 @@ public class WeatherForecast extends AppCompatActivity {
                             Log.i("Weather", max);
                         }
                         if(name.equals("weather")){
-                            icon = xpp.getAttributeValue(null, "icon");
+                                icon = xpp.getAttributeValue(null, "icon");
                         }
                     }
                     xpp.next();
@@ -120,13 +120,15 @@ public class WeatherForecast extends AppCompatActivity {
                     JSONObject jObject = new JSONObject(result);
                         float value = (float)jObject.getDouble("value");
                         UV = String.valueOf(value);
-                        publishProgress(100);
+                     //   publishProgress(100);
 
 
                 if (fileExistance(icon + ".png")) {
                     image = getPicture(icon + ".png");
+                    Log.i("image", "it is found locally");
+                    publishProgress(100);
                 } else {
-                    Bitmap image = null;
+                    Log.i("image","the image has to be downloaded");
                     //URL url0 = new URL(urlString);
                     HttpURLConnection con0 = (HttpURLConnection) new URL("http://openweathermap.org/img/w/" + icon + ".png").openConnection();
                     //connection = (HttpURLConnection) url.openConnection();
@@ -138,6 +140,8 @@ public class WeatherForecast extends AppCompatActivity {
                         image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
                         outputStream.flush();
                         outputStream.close();
+                        image = getPicture(icon + ".png");
+                        publishProgress(100);
                     }
                 }
 
