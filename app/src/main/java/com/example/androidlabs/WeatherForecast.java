@@ -120,6 +120,7 @@ public class WeatherForecast extends AppCompatActivity {
                     JSONObject jObject = new JSONObject(result);
                         float value = (float)jObject.getDouble("value");
                         UV = String.valueOf(value);
+                        Log.i("Weather", UV);
                      //   publishProgress(100);
 
 

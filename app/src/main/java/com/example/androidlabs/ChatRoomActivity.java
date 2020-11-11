@@ -2,6 +2,7 @@ package com.example.androidlabs;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +37,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     int isSentColumnIndex;
     int messageColIndex;
     int idColIndex;
+    boolean isTablet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         EditText etText = findViewById(R.id.inputET);
         Button addButton1 = findViewById(R.id.sendBtn);
         Button addButton2 = findViewById(R.id.receiveBtn);
+        isTablet = findViewById(R.id.fragDetail) != null;
 
         MyDatabaseOpener dbOpener = new MyDatabaseOpener(this);
         db = dbOpener.getWritableDatabase();
@@ -82,11 +86,36 @@ public class ChatRoomActivity extends AppCompatActivity {
                 db.delete(MyDatabaseOpener.TABLE_NAME, "_id=?", new String[]{ Long.toString(M.getId()) });
                 adapter.notifyDataSetChanged();
                 myListView.setAdapter(adapter);
+                Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragDetail);
+                getSupportFragmentManager().beginTransaction().remove(f).commit();
+
             });
             alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
 
             alertDialogBuilder.create().show();
             return true;
+        });
+
+        myListView.setOnItemClickListener((p, b, pos, id) ->{
+            if (isTablet) {
+                Bundle dataToPass = new Bundle();
+                dataToPass.putString("Message", myList.get(pos).getMessage());
+                dataToPass.putLong("id", myListView.getItemIdAtPosition(pos));
+                dataToPass.putBoolean("isSend", myList.get(pos).getIsSent());
+
+                DetailsFragment dFragment = new DetailsFragment();
+                dFragment.setArguments(dataToPass);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragDetail, dFragment)
+                        .commit();
+            } else {
+                Intent goToEmpty = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                goToEmpty.putExtra("Message", myList.get(pos).getMessage());
+                goToEmpty.putExtra("id", myListView.getItemIdAtPosition(pos));
+                goToEmpty.putExtra("isSend", myList.get(pos).getIsSent());
+                startActivity(goToEmpty);
+            }
         });
 
 
@@ -117,6 +146,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void printCursor( Cursor c, int version) {
         //int IsSentColIndex = c.getColumnIndex(MyDatabaseOpener.ISSENT);

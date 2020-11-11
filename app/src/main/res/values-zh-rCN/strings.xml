@@ -21,5 +21,9 @@
     <string name="MinTemp">最低温度</string>
     <string name="MaxTemp">最高温度:</string>
     <string name="UVrating">紫外线:</string>
+    <string name="Message_Here">信息</string>
+    <string name="ID">ID=</string>
+    <string name="isSend">是发送邮件</string>
+    <string name="hide">隐藏</string>
 
 </resources>

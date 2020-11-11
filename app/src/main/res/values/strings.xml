@@ -20,4 +20,8 @@
     <string name="MinTemp">Minimum Temperature:</string>
     <string name="MaxTemp">Maximum Temperature:</string>
     <string name="UVrating">UV rating:</string>
+    <string name="Message_Here">Message Here</string>
+    <string name="ID">ID=</string>
+    <string name="isSend">Is a Send Message</string>
+    <string name="hide">HIDE</string>
 </resources>
