@@ -65,10 +65,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             String message = results.getString(messageColIndex);
             Boolean isSent = Boolean.valueOf(results.getString(isSentColumnIndex));
             long id = results.getLong(idColIndex);
-
             myList.add(new Message(id, message, isSent));
-
-
         }
         printCursor(results, 1);
         adapter = new MyAdapter();

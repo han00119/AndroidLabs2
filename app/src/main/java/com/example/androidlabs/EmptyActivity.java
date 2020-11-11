@@ -28,6 +28,5 @@ public class EmptyActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.fragDetail, dFragment)
                 .commit();
-
     }
 }

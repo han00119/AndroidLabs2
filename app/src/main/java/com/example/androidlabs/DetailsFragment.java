@@ -40,7 +40,6 @@ public class DetailsFragment extends Fragment {
         });
         return result;
     }
-
     public void onAttach(Context context) {
         super.onAttach(context);
 
