@@ -84,7 +84,9 @@ public class ChatRoomActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 myListView.setAdapter(adapter);
                 Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragDetail);
-                getSupportFragmentManager().beginTransaction().remove(f).commit();
+                if(f != null) {
+                    getSupportFragmentManager().beginTransaction().remove(f).commit();
+                }
 
             });
             alertDialogBuilder.setNegativeButton("No", (click, arg) -> { });
@@ -161,10 +163,10 @@ public class ChatRoomActivity extends AppCompatActivity {
                 String message = c.getString(messageColIndex);
                 long ID = c.getLong(idColIndex);
                 boolean IsSent = Boolean.parseBoolean(c.getString(isSentColumnIndex));
-                if (IsSent == true) {
+                if (IsSent) {
                     SOR = "a send message";
                 }
-                if (IsSent == false) {
+                if (!IsSent) {
                     SOR = "a receive message";
                 }
                 Log.i("ChatRoomActivity", "The Database ID is " + ID + ", The message is " + message + ", It is " + SOR);
@@ -199,22 +201,22 @@ public class ChatRoomActivity extends AppCompatActivity {
             LayoutInflater myInflater = getLayoutInflater();
             View newView = old;
             if (!mess1.getIsSent()) {
-                if (newView == null) {
+//                if (newView == null) {
                     newView = myInflater.inflate(R.layout.left_chat, parent, false);
                     ImageView imv1 = newView.findViewById(R.id.img_left);
                     TextView tView = newView.findViewById(R.id.tv_left);
                     tView.setText(getItem(i).getMessage());
-                }
+                //}
             }
             if (mess1.getIsSent()) {
-                if (newView == null) {
+//                if (newView == null) {
                     newView = myInflater.inflate(R.layout.right_chat, parent, false);
 
                     TextView tView = newView.findViewById(R.id.tv_right);
                     ImageView imv1 = newView.findViewById(R.id.img_right);
                     tView.setText(getItem(i).getMessage());
 
-                }
+//                }
             }
             return newView;
         }

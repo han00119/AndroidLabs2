@@ -33,7 +33,7 @@ public class DetailsFragment extends Fragment {
         CheckBox c1 = result.findViewById(R.id.CB);
         Button b1 = result.findViewById(R.id.btn);
         tv1.setText(Message);
-        tv2.setText(String.valueOf(ID));
+        tv2.setText(getResources().getString(R.string.ID)+ID);
         c1.setChecked(isSend);
         b1.setOnClickListener(click ->{
             parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
@@ -42,7 +42,6 @@ public class DetailsFragment extends Fragment {
     }
     public void onAttach(Context context) {
         super.onAttach(context);
-
         parentActivity = (AppCompatActivity)context;
     }
 }

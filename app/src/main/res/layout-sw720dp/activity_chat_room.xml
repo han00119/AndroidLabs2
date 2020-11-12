@@ -8,33 +8,40 @@
     <ListView
         android:id="@+id/LV"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@id/bottom"/>
-    <LinearLayout
+
+    <RelativeLayout
         android:id="@+id/bottom"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/sendBtn"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/sendB"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/sendB" />
 
         <EditText
             android:id="@+id/inputET"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/sendBtn"
             android:layout_weight="1"
-            android:hint="@string/input"/>
+            android:hint="@string/input" />
 
         <Button
             android:id="@+id/receiveBtn"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/receiveB"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/receiveB" />
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fragDetail"
