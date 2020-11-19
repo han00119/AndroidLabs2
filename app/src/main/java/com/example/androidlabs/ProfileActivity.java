@@ -29,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tv4 = findViewById(R.id.tv4);
         //ImageButton im = findViewById(R.id.ib);
         Button goToWeather = findViewById(R.id.goToWeather);
+        Button goToToolbar = findViewById(R.id.goToTestToolbar);
 
         TextView tv5 = findViewById(R.id.tv5);
         mImageButton = (ImageButton) findViewById(R.id.ib);
@@ -47,7 +48,14 @@ public class ProfileActivity extends AppCompatActivity {
             Intent i = new Intent(ProfileActivity.this, WeatherForecast.class);
             startActivity(i);
         });
+
+        goToToolbar.setOnClickListener(click -> {
+            //TODO
+            Intent i = new Intent(ProfileActivity.this, TestToolbar.class);
+            startActivityForResult(i, 34);
+        });
     }
+
 
 
     @Override
@@ -95,6 +103,9 @@ public class ProfileActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mImageButton.setImageBitmap(imageBitmap);
+        }
+        if(resultCode==500){
+            finish();
         }
     }
 

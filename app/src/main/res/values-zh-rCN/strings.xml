@@ -25,5 +25,19 @@
     <string name="ID">ID=</string>
     <string name="isSend">是发送邮件</string>
     <string name="hide">隐藏</string>
-
+    <string name="goToTestToolbar">去Toolbar Page</string>
+    <string name="goToMain">去Main</string>
+    <string name="overflowMenuItem">溢出菜单项</string>
+    <string name="thisIsOverflow">这里是Overflow Menu</string>
+    <string name="navigation_drawer_open">开</string>
+    <string name="navigation_drawer_close">关</string>
+    <string name="item1">项 1</string>
+    <string name="item2">项 2</string>
+    <string name="item3">项 3</string>
+    <string name="clickitem1">你点了项 1</string>
+    <string name="clickitem2">你点了项 2</string>
+    <string name="clickitem3">你点了项 3</string>
+    <string name="ChatPage">Chat Page</string>
+    <string name="WeatherForecast">Weather Forecast</string>
+    <string name="GoBackToMain">Go Back to login</string>
 </resources>

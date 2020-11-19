@@ -24,4 +24,19 @@
     <string name="ID">ID=</string>
     <string name="isSend">Is a Send Message</string>
     <string name="hide">HIDE</string>
+    <string name="goToTestToolbar">Go To Toolbar Page</string>
+    <string name="goToMain">Go to main</string>
+    <string name="overflowMenuItem">Overflow Menu Item</string>
+    <string name="thisIsOverflow">You clicked on the overflow menu</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="item1">item 1</string>
+    <string name="item2">item 2</string>
+    <string name="item3">item 3</string>
+    <string name="clickitem1">You clicked on item 1</string>
+    <string name="clickitem2">You clicked on item 2</string>
+    <string name="clickitem3">You clicked on item 3</string>
+    <string name="ChatPage">Chat Page</string>
+    <string name="WeatherForecast">Weather Forecast</string>
+    <string name="GoBackToMain">Go Back to Login</string>
 </resources>
