@@ -50,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         goToToolbar.setOnClickListener(click -> {
-            //TODO
             Intent i = new Intent(ProfileActivity.this, TestToolbar.class);
             startActivityForResult(i, 34);
         });
