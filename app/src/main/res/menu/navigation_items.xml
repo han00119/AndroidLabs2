@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/weather"
+        android:id="@+id/chat"
         android:title="@string/ChatPage"
-        android:icon="@drawable/weather"
+        android:icon="@drawable/chat"
         android:orderInCategory="1"
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/chat"
+        android:id="@+id/weather"
         android:title="@string/WeatherForecast"
-        android:icon="@drawable/chat"
+        android:icon="@drawable/weather"
         android:orderInCategory="2"
         app:showAsAction="always" />
 
